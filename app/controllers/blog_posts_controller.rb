@@ -6,7 +6,7 @@ class BlogPostsController < ApplicationController
     end
 
     def show
-        @blog_post = BlogPost.published.find(params[:id])
+        @blog_post = BlogPost.find(params[:id])
     end
 
     def new
@@ -40,7 +40,7 @@ class BlogPostsController < ApplicationController
     private
 
     def blog_post_params
-        params.require(:blog_post).permit(:title, :content, :published_at  )
+        params.require(:blog_post).permit(:title, :content, :published_at, :image )
     end
     
     def set_blog_post

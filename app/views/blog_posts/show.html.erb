@@ -1,4 +1,15 @@
 <%= link_to "Edit", edit_blog_post_path(@blog_post) if user_signed_in? %>
-
+<style>
+    .blog-post-image {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
 <h1><%= @blog_post.title %></h1>
-<%= @blog_post.content %>
+<p><%= @blog_post.content %></p>
+
+<% if @blog_post.image.attached? %>
+  <%= image_tag @blog_post.image, class: 'blog-post-image' %>
+<% else %>
+  <p>No image available.</p>
+<% end %>

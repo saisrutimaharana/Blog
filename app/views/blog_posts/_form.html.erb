@@ -5,6 +5,17 @@
                 <div><%= message %></div>
             <% end %>
         </div>
+        <style>
+            .blog-post-image {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
+        <div class="field">
+            <%= form.label :image %>
+            <%= form.file_field :image %>
+        </div>
+
     <% end %>
 
     <div>
@@ -15,6 +26,9 @@
     <div>
         <%= form.label :content %>
         <%= form.rich_text_area :content %>
+    </div>
+    <div class="field">
+        <%= form.file_field :image %>
     </div>
 
     <div>
