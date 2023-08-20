@@ -1,0 +1,32 @@
+
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .blog_post-container{
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 5px;
+      }
+      .blog_post-form button:hover {
+
+        background-color: #0056b3;
+      }
+      
+</style>
+<div class="blog_post-container">
+    <h1>MY BLOG</h1>
+    <% @blog_posts.each do |blog_post| %>
+
+        <div>
+            <h2><%= link_to blog_post.title, "/blog_posts/#{blog_post.id}" %></h2>
+            <%= blog_post.body %>
+        </div>
+    <% end %> 
+</div>
