@@ -7,7 +7,7 @@
         padding: 0;
       }
       .blog_post-container{
-        max-width: 400px;
+        max-width: 1500px;
         margin: 20px auto;
         background-color: white;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -26,6 +26,11 @@
 
         <div>
             <h2><%= link_to blog_post.title, "/blog_posts/#{blog_post.id}" %></h2>
+            <% if blog_post.image.attached? %>
+              <%= image_tag blog_post.image, class: 'blog-post-image' %>
+            <% else %>
+              <p>No image available. </p>
+            <% end%>
             <%= blog_post.content %>
         </div>
     <% end %> 
