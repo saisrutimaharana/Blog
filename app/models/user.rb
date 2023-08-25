@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :dob, presence: true
   validates :avatar, presence: true
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :authentication_keys => [:name]
+
 
 end
