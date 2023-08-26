@@ -6,10 +6,10 @@ class RegistrationsController < Devise::RegistrationsController
     end
   
     def create
-        @blog_post = BlogPost.new(sign_up_params)
-        if @blog_post.save
-          sign_in(@blog_post) 
-          redirect_to @blog_post
+        @user = Useer.new(sign_up_params)
+        if @user.save
+          sign_in(@user) 
+          redirect_to @user
         else
             render 'new'
           
