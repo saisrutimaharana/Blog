@@ -5,9 +5,9 @@
 
 <%= link_to 'Back', blog_posts_path %>
 
-<%= image_tag @blog_post.avatar.url if @blog_post.avatar.present? %>
+
 
 <h2>Author: <%= @blog_post.user.name %></h2>
 <p>Gender: <%= @blog_post.user.gender %></p>
 <p>Date of Birth: <%= @blog_post.user.dob %></p>
-<%= image_tag @blog_post.user.avatar.url if @blog_post.user.avatar.present? %>
+<%= image_tag @blog_post.user.avatar_url if @blog_post.user.avatar.present? %>
