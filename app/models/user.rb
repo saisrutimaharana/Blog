@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   def avatar_url
     if self.avatar.attached?
-      rails.application.routes.url_helpers.rails_blob_path(self.avatar, only_path: true)
+      Rails.application.routes.url_helpers.rails_blob_path(self.avatar, only_path: true)
     else
       nil
     end
