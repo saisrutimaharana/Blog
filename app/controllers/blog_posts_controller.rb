@@ -1,8 +1,8 @@
 class BlogPostsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
-    before_action :set_blog_post, except: [:index, :new, :create]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+    before_action :set_blog_post, only: [:edit, :update, :destroy]
     def index
-      @blog_posts = user_signed_in? ? BlogPost.sorted : BlogPost.published
+      @blog_posts = BlogPost.all
     end
 
     def show
@@ -14,11 +14,11 @@ class BlogPostsController < ApplicationController
     end
 
     def create
-        @blog_post = current_user.blog_posts.build(blog_post_params)
+        @blog_post = current_user.blog_posts.new(blog_post_params)
         if @blog_post.save
             redirect_to @blog_post
         else
-            render :new, status: :unprocessable_entity
+            render :new
         end
     end
 
@@ -29,29 +29,23 @@ class BlogPostsController < ApplicationController
         if @blog_post.update(blog_post_params)
             redirect_to @blog_post
         else
-            render :edit,status: :unprocessable_entity
+            render :edit
         end
     end
     def destroy
         @blog_post.destroy
-        redirect_to root_path
+        redirect_to blog_post_url
     end
 
     private
 
-    def blog_post_params
-        params.require(:blog_post).permit(:title, :content, :published_at, :image, )
-    end
-    
     def set_blog_post
-        if user_signed_in?
-            @blog_post = BlogPost.find(params[:id])
-        else
-            @blog_post = BlogPost.published.find(params[:id])
-        end
-    rescue ActiveRecord::RecordNotFound
-        redirect_to root_path 
+        @blog_post = current_user.blog_posts.find(params[:id])
     end
 
-    
+   
+     def blog_post_params
+        params.require(:blog_post).permit(:title, :content, :image, :video )
+    end
+  
 end

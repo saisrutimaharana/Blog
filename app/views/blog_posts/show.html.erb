@@ -1,13 +1,27 @@
-<%= link_to "Edit", edit_blog_post_path(@blog_post) if user_signed_in? %>
+<p>
+  <strong>Title:</strong>
+  <%= @blog_post.title %>
+</p>
 
-<h1><%= @blog_post.title %></h1>
-<p><%= @blog_post.content %></p>
+<p>
+  <strong>Description:</strong>
+  <%= @blog_post.description %>
+</p>
 
+<% if @blog_post.image.present? %>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @blog_post.image.url %>
+  </p>
+<% end %>
+
+<% if @blog_post.video.present? %>
+  <p>
+    <strong>Video:</strong>
+    <%= video_tag @blog_post.video.url %>
+  </p>
+<% end %>
+
+<%= button_to 'Delete', blog_post_path(@blog_post), method: :delete, data: { confirm: 'Are you sure you want to log out?' } %> |
+<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
 <%= link_to 'Back', blog_posts_path %>
-
-
-
-<h2>Author: <%= @blog_post.user.name %></h2>
-<p>Gender: <%= @blog_post.user.gender %></p>
-<p>Date of Birth: <%= @blog_post.user.dob %></p>
-<%= image_tag @blog_post.user.avatar_url if @blog_post.user.avatar.present? %>

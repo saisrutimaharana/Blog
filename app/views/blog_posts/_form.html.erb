@@ -18,20 +18,26 @@
 
     <% end %>
 
-    <div>
+    <div class="field">
         <%= form.label :title %>
         <%= form.text_field :title %>
     </div>
 
-    <div>
+    <div class="field">
         <%= form.label :content %>
         <%= form.rich_text_area :content %>
     </div>
     <div class="field">
+        <%= form.label :image %>
         <%= form.file_field :image %>
     </div>
 
-    <div>
+    <div class="field">
+        <%= form.label :video %>
+        <%= form.file_field :video %>
+    </div>
+
+    <div class="field">
         <%= form.label :published_at %>
         <%= form.datetime_select :published_at %>
     </div>

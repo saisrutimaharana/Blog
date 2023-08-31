@@ -4,5 +4,7 @@
 
 <%= render partial: "form", local: {blog_post: @blog_post} %>
 
+<%= link_to 'Show', @blog_post %>
+
 <%= button_to "Delete", @blog_post, method: :delete %>
 

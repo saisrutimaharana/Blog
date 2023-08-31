@@ -1,5 +1,18 @@
 <h2>Log in</h2>
 
+<style>
+  .field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, #b76aff, #9865e0);
+
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  </style>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -18,7 +31,7 @@
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="field">
     <%= f.submit "Log in" %>
   </div>
 <% end %>

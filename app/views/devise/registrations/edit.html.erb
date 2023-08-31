@@ -33,31 +33,9 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div>
-    <%= f.label :gender %>
-    <%= f.select :gender, ['Male', 'Female', 'Other'] %>
-  </div>
-
-  <div>
-    <%= f.label :dob %>
-    <%= f.date_field :dob %>
-  </div>
-
-  <div>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-  </div>
-  
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
-
-
 <% end %>
 
 <h3>Cancel my account</h3>

@@ -1,11 +1,6 @@
 
 <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-      }
+    
       .blog_post-container{
         max-width: 1500px;
         margin: 20px auto;
@@ -19,18 +14,33 @@
         background-color: #0056b3;
       }
       
+      .round-image {
+        border-radius: 50%;
+      }  
+
 </style>
 <div class="blog_post-container">
     <h1>MY BLOG</h1>
-    <% @blog_posts.each do |blog_post| %>
 
+    <%= link_to 'Create New Blog Post', new_blog_post_path %>
+
+    <% @blog_posts.each do |blog_post| %>
+        
         <div>
             <h2><%= link_to blog_post.title, "/blog_posts/#{blog_post.id}" %></h2>
             <% if blog_post.image.attached? %>
-              <%= image_tag blog_post.image, class: 'blog-post-image' %>
+              <%= image_tag blog_post.image, class: 'blog-post-image' , width: "20%"%>
             <% else %>
               <p>No image available. </p>
             <% end%>
+
+            <% if blog_post.video? %>
+              <video width="320" height="240" controls>
+                <source src="<%= blog_post.video.url %>" type="video/mp4">
+              </video>
+            <% end %>
+
+            
             <%= blog_post.content %>
         </div>
     <% end %> 
