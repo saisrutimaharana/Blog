@@ -9,7 +9,7 @@
     align-items: center;
     height: 100vh;
     text-align: center;
-    background-color: yellow;
+    background-color: pink;
     background-position: center;
     
     background-size: cover;
@@ -18,7 +18,7 @@
   
   
   .signup-container{
-    background-color: gray;
+    background-color:grey;
      
   
     border-radius: 10px;
@@ -32,7 +32,7 @@
     flex-direction: column;
     align-items: center;
     background: linear-gradient(to bottom, #b76aff, #9865e0);
-
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
   }
   
 /* Style labels */
@@ -83,21 +83,21 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br />
     </div>
 
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password" %><br />
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %><br />
     </div>
     <div class="field">
       <%= f.label :name %>

@@ -1,32 +1,45 @@
 
 <style>
-    
-      .blog_post-container{
-        max-width: 1500px;
-        margin: 20px auto;
-        background-color: white;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        border-radius: 5px;
-      }
-      .blog_post-form button:hover {
 
-        background-color: #0056b3;
-      }
-      
-      .round-image {
-        border-radius: 50%;
-      }  
+  .blog_post-container{
+    max-width: 1500px;
+    margin: 20px auto;
+    background-color: grey;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    
+    }
+  
+  .round-image {
+    border-radius: 50%;
+  }  
+  
+  body {
+    padding: 10px;
+    background: #B6B6B4;
+    align-items: center;
+  }
+  .blog{
+    
+    flex-wrap: wrap;
+    background-color: pink;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 1);
+    padding: 10px;
+    
+  }
 
 </style>
 <div class="blog_post-container">
-    <h1>MY BLOG</h1>
-
+    <h1 style="color: blue;;text-align:center;font-size:60px">MY BLOG</h1>
+    
     <%= link_to 'Create New Blog Post', new_blog_post_path %>
 
     <% @blog_posts.each do |blog_post| %>
         
-        <div>
+        <div class="blog">
             <h2><%= link_to blog_post.title, "/blog_posts/#{blog_post.id}" %></h2>
             <% if blog_post.image.attached? %>
               <%= image_tag blog_post.image, class: 'blog-post-image' , width: "20%"%>
@@ -34,11 +47,7 @@
               <p>No image available. </p>
             <% end%>
 
-            <% if blog_post.video? %>
-              <video width="320" height="240" controls>
-                <source src="<%= blog_post.video.url %>" type="video/mp4">
-              </video>
-            <% end %>
+            
 
             
             <%= blog_post.content %>

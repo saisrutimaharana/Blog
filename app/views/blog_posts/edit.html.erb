@@ -1,10 +1,63 @@
-<h1>Edit blog post</h1>
-<%= link_to 'Back', blog_post_path %>
+
+<style>
+    body {
+        padding: 10px;
+        background: #B6B6B4;
+        align-items: center;
+    }
+    .back {
+        position: relative;
+        height: 30px;
+        width: 90px;
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        outline: 1px solid #fff;
+        text-transform: capitalize;
+        border-radius: 4px;
+        transition: 1s ease;
+        text-align: center;
+    
+    }
+    .back:hover {
+        background-color: #fff;
+        color: #000;
+        font-weight: bolder;
+    }
+    
+    .new{
+        max-width: 1500px;
+        margin: 20px auto;
+        background-color: grey;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    
+    }
+    .form{
+    
+        flex-wrap: wrap;
+        background-color: pink;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+        padding: 10px;
+        
+    }
+    
+</style>
+<div>
+    <h1 style="color: blue;text-align:center;font-size:60px">Edit blog post</h1>
 
 
-<%= render partial: "form", local: {blog_post: @blog_post} %>
 
-<%= link_to 'Show', @blog_post %>
-
-<%= button_to "Delete", @blog_post, method: :delete %>
-
+    <div class="form"><%= render partial: "form", local: {blog_post: @blog_post} %></div><br/>
+    
+    <%= button_to "Delete", @blog_post, method: :delete %><br/>
+    <div class="back">
+        <%= link_to 'Show', @blog_post %><br/>
+    </div>
+    <div class=back>
+        <%= link_to 'Back', blog_post_path %><br/>
+    </div>
+</div>

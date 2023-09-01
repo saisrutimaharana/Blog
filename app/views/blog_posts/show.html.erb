@@ -1,27 +1,86 @@
-<p>
-  <strong>Title:</strong>
-  <%= @blog_post.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @blog_post.description %>
-</p>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #080710;
+        background-position: center;
+        
+        background-size: cover;
+        color: pink;
+        backdrop-filter: blur(50px);
 
-<% if @blog_post.image.present? %>
+    }
+
+    .blog-post {
+    
+        background-color: #ffffff2e;
+        border: 100px solid #ffffff2e;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 1);
+        padding: 20px;
+        width: 400px;
+    }
+
+
+    
+  .image {
+    
+    max-width: 100%;
+    
+    border: 2px solid #333;
+    
+    padding: 10px;
+    
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+   
+    margin: 10px;
+    
+    border-radius: 10px;
+  }
+
+  
+  .image:hover {
+    
+    border-width: 3px;
+    
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    
+    
+    
+    transition: all 0.3s ease;
+  }
+
+</style>
+<div class="blog-post">
   <p>
-    <strong>Image:</strong>
-    <%= image_tag @blog_post.image.url %>
+    <strong>Title:</strong>
+    <%= @blog_post.title %>
   </p>
-<% end %>
 
-<% if @blog_post.video.present? %>
   <p>
-    <strong>Video:</strong>
-    <%= video_tag @blog_post.video.url %>
+    <strong>Content:</strong>
+    <%= @blog_post.content %>
   </p>
-<% end %>
-
-<%= button_to 'Delete', blog_post_path(@blog_post), method: :delete, data: { confirm: 'Are you sure you want to log out?' } %> |
-<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
-<%= link_to 'Back', blog_posts_path %>
+  <div class="image">
+    <% if @blog_post.image.present? %>
+      <p>
+        <strong>Image:</strong>
+        <%= image_tag @blog_post.image ,width:"50%"%>
+      </p>
+    <% end %>
+    
+    
+  </div>
+</div>
+  <%= button_to 'Delete', blog_post_path(@blog_post), method: :delete, data: { confirm: 'Are you sure you want to log out?' } %> <br/>
+  <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
+  <%= link_to 'Back', blog_posts_path %>
+  

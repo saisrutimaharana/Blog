@@ -1,49 +1,55 @@
-<%= form_with model: @blog_post do |form| %>
-    <% if form.object.errors.any? %>
-        <div>
-            <% form.object.errors.full_messages.each do |message| %>
-                <div><%= message %></div>
-            <% end %>
+
+<div class="blog-post">
+
+    <%= form_with model: @blog_post do |form| %>
+        <% if form.object.errors.any? %>
+            <div>
+                <% form.object.errors.full_messages.each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
+            <style>
+                .blog-post-image {
+                    max-width: 100%;
+                    height: auto;
+                }
+            </style>
+            <div class="field">
+                <%= form.label :image %>
+                <%= form.file_field :image %>
+            </div>
+
+        <% end %>
+
+        <div class="field">
+            <%= form.label :title %>
+            <%= form.text_field :title %>
         </div>
-        <style>
-            .blog-post-image {
-                max-width: 100%;
-                height: auto;
-            }
-        </style>
+
+        <div class="field">
+            <%= form.label :content %>
+            <%= form.rich_text_area :content %>
+        </div>
         <div class="field">
             <%= form.label :image %>
             <%= form.file_field :image %>
         </div>
 
+        <div class="field">
+            <%= form.label :video %>
+            <%= form.file_field :video %>
+        </div>
+
+        <div class="field">
+            <%= form.label :published_at %>
+            <%= form.datetime_select :published_at %>
+        </div>
+
+
+
+        <div class="actions">
+            <%= form.submit %>
+        </div>
+
     <% end %>
-
-    <div class="field">
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-    </div>
-
-    <div class="field">
-        <%= form.label :content %>
-        <%= form.rich_text_area :content %>
-    </div>
-    <div class="field">
-        <%= form.label :image %>
-        <%= form.file_field :image %>
-    </div>
-
-    <div class="field">
-        <%= form.label :video %>
-        <%= form.file_field :video %>
-    </div>
-
-    <div class="field">
-        <%= form.label :published_at %>
-        <%= form.datetime_select :published_at %>
-    </div>
-
-
-
-    <%= form.button%>
-
-<% end %>
+</div>

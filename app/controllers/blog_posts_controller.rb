@@ -34,7 +34,7 @@ class BlogPostsController < ApplicationController
     end
     def destroy
         @blog_post.destroy
-        redirect_to blog_post_url
+        redirect_to blog_posts_url
     end
 
     private
